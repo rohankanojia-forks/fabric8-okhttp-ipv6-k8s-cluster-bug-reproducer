@@ -1,4 +1,4 @@
-package io.fabric8.demo;
+package io.fabric8.demo.ipv6.cluster;
 
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class Ipv6ClusterTest {
+class GetClusterVersionTest {
     @Test
     void testClientConnectsInIpv6Cluster() {
         // Given
