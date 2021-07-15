@@ -10,8 +10,9 @@ import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CreateDeploymentTest {
+class CreateDeploymentTest {
     @Test
     void testCreateDeployment() {
         // Given
@@ -26,6 +27,9 @@ public class CreateDeploymentTest {
         assertNotNull(deployment);
         assertNotNull(deployment.getMetadata().getCreationTimestamp());
         assertEquals("nginx-deployment", deployment.getMetadata().getGenerateName());
+        assertTrue(client.apps().deployments().inNamespace(deployment.getMetadata().getNamespace())
+                .withName(deployment.getMetadata().getName())
+                .delete());
     }
 
     private Deployment createDeployment() {
